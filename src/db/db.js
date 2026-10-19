@@ -3,9 +3,9 @@ import mysql from 'mysql2/promise';
 const db = mysql.createPool({
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
-    user: 'root',
-    password: 'root',
-    database: 'projetoggs'
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 });
 
 (async () => {
@@ -17,5 +17,3 @@ const db = mysql.createPool({
         console.error('Erro ao conectar com o bando de dados:', err)
     }
 })();
-
-export default db;
