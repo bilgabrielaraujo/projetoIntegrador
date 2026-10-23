@@ -40,7 +40,7 @@ export const update = async (idLivro, livroData) => {
     const [result] = await db.query('UPDATE livro SET ? WHERE idLivro = ?', [livroData,idLivro]);
     return result.affectedRows > 0;
 };
-   
+
 export const remove = async (idLivro) => {
     const [result] = await db.query('DELETE FROM livro WHERE idLivro = ?', [idLivro]);
     return result.affectedRows > 0;

@@ -44,4 +44,3 @@ export const remove = async (idGenero) => {
     const [result] = await db.query('DELETE FROM genero WHERE idGenero = ?', [idGenero]);
     return result.affectedRows > 0;
 };
- 

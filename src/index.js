@@ -6,7 +6,12 @@ import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-//Lembra de importar as rotas aqui
+
+import authRoute from './routes/authRoutes.js';
+import usuarioRoute from './routes/usuarioRoute.js';
+import livroRoute from './routes/livroRoute.js';
+import emprestimoRoute from './routes/emprestimoRoute.js';
+import generoRoute from './routes/generoRoute.js';
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -31,7 +36,11 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'pages', 'home.html'));
 });
 
-const apiPrefix = '/davyjonesLibrary/';
+const apiPrefix = '/davyjonesLibrary';
+
+
+app.use(`${apiPrefix}/auth`, authRoute);
+app.use(`${apiPrefix}/usuario`, usuarioRoute);
 
 app.use((err,req,res,next) => {
     console.error(err.stack)

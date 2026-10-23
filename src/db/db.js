@@ -8,6 +8,8 @@ const db = mysql.createPool({
     database: process.env.DB_NAME
 });
 
+export default db;
+
 (async () => {
     try {
         const connection = await db.getConnection();
