@@ -10,7 +10,7 @@ export const usuarioCreateSchema = Joi.object({
     endereco: Joi.string().required().max(30),
     telefone: Joi.string().required(),
     tipoUsuario: Joi.string().valid('admin', 'user').required(),
-    statusDecolucao: Joi.string().valid('ativo', 'inativo').required(),
+    statusDevolucao: Joi.string().valid('ativo', 'inativo').required(),
 });
 
 export const usuarioUpdateSchema = Joi.object({
@@ -19,6 +19,7 @@ email: Joi.string().email().max(50),
 senha: Joi.string().max(100),
 endereco: Joi.string().max(100),
 telefone: Joi.string(),
+statusDevolucao: Joi.string().valid('ativo', 'inativo'),
 }).min(1);
 
 export const listarUsuario = async (req,res) => {
